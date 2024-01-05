@@ -56,18 +56,3 @@ description: UEFI Definitions before UEFI development
 * Each phase builds on the previous until the system is ready for the OS.
 * UEFI takes over to support the Option ROMs and the OS.
 * Option ROM: Firmware that is called by the system BIOS. Option ROMs include BIOS firmware on add-on cards, as well as modules that extend the capabilities of the system BIOS.
-
-
-
-
-
-####
-
-##
-
-
-
-####
-
-##
-
