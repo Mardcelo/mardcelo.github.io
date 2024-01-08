@@ -7,6 +7,7 @@
 ## Basics&#x20;
 
 * [UEFI/BIOS/PI Definitions](basics/uefi-bios-pi-definitions.md)
+* [Term Definitions](basics/term-definitions.md)
 
 ## C programming&#x20;
 
