@@ -13,6 +13,16 @@ description: Basic introduction of the Vectorized emulation note from Brandon Fa
 
 ## Definitions&#x20;
 
+**Vector**: Register containing multiple pieces of data&#x20;
+
+**Lane**: One single component of a vector&#x20;
+
+**VM / Guest**: Virtual machine, broadly used to refer to an emulated or virtualized guest. This guest has its own register and memory state that's kept in an isolated environment.&#x20;
+
+**Parallel**: Performing the same operation on multiple pieces of data in a vector (Single instruciton can refer to vector) &#x20;
+
+**Neighbor**: Lane of another VM which is executing along side of another lane. 16 VMs execute per vector, thus each VM has 15 "neighbors"&#x20;
+
 ### Notes for me
 
 * MIPS Emulator development&#x20;
@@ -94,7 +104,7 @@ mov eax, 5
 mov ebx, 10 
 ; Adds the values in the eax and ebx registers.
 ; Stores the result back in eax. 
-add eax, ebx
+a bottleneckbx
 ; Subtracts 20 from teh value in the eax register.
 ; Stores the result back in eax. 
 sub eax, 20 
@@ -113,11 +123,66 @@ vpaddd       zmm0, zmm0, zmm1
 vpsubd       zmm0, zmm0, dword ptr [memory containing constant 20] {1to16}
 ```
 
+`broadcast`= mov (broadcasting a dword value to all lanes of a given ZMM register).
+
+`vpaddd` = add&#x20;
+
+`vpsubd` = sub&#x20;
+
+`zmm0` = EAX&#x20;
+
+`zmm1` = EBX&#x20;
+
+NOTE: Xeon Phi is bottle necked on the instruction decoder that it's faster to load from memory than it is to load an immediate into a GPR, move this into an XMM register, and then broadcast it out.&#x20;
+
+Introducing the`1to16}` broadcasting that AVX-512 offers. This allows the use of a single dword constant value within our example, `vpsubd`.&#x20;
+
+* This broadcasts the memory pointed to all 16 lanes and then performs the operation. This saves one instruction, as we don't need an explicit `vpbroadcastd`.&#x20;
+* broadcasting works by loading the value from memory, replicating the value in all lanes, and performing the operation on all lanes. So basically, you can perform the same operation on every single component of a vector.&#x20;
+
+If we execute with any VM state we will have no VMs do anything different.&#x20;
+
+1-to-1 translation of the non-vectorized x86 to vectorized x86, nuh uh.&#x20;
+
+We forgot memory operations and branches.&#x20;
+
+### AVX memory&#x20;
+
+With AVX-512 we are available to load and store directly from/to memory, and ideally this memory is aligned as 512-bit registers are whole 64-byte cache lines.&#x20;
+
+In AVX-512, we use the `vmovdqa32` instruction. This will load an entire aligned 64-byte piece of memory into a ZMM register aka `vmovdqa32 zmm0, [memory]` , and we can store it with `vmovdqa32 [memory], zmm0` . \
+
+
+* When using kmasks with `vmovdqa32` for loads the corresponding lane is left unmodified (merge masking) or zeroed (zero masking). For stores, the value is simply not written if the corresponding mask bit is zero.&#x20;
+
+### VM memory interleaving&#x20;
+
+* Problem: How do we organize the 16 Vms at the dword level (32-bit)?&#x20;
+* Performing a single `vmovdqa32` to load or store to memory for all 16 VMs as long they're accessing the same address.&#x20;
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>chart simplified to show 4 lanes instead of 16 - Gamozolabs</p></figcaption></figure>
+
+Take the guest address, multiply it by 16, and then `vmovdqa32` from/to that address.&#x20;
+
+NOTE: It does not matter what the contents of teh memory are for each VM and they can differ. The `vmovdqa32` does not care about the memory contents.&#x20;
+
+The host address is not just the GA (Guest Address) x 16 as we need some translation layer.&#x20;
+
+### Limitations&#x20;
+
+We must read the whole dword value and then shift and mask to extract the specific byte. When writing a byte we need to read the memory first, shift, mask, and or in the new byte, and write it out.&#x20;
+
+When doing non-aligned operations we need to perform multiple memory operations and combine the values via shifting and masking.&#x20;
+
+* Compilers avoid these unaligned operations and they're rare enough to not matter much.&#x20;
+
+
+
 ### Future-building Xeon Phi stuff&#x20;
 
 * [Intel Xeon PHI 7210 ](https://www.ebay.com/itm/364207471622?chn=ps\&mkevt=1\&mkcid=28\&srsltid=AfmBOopFKo4hYKKt0i5VUNthjfXnvJVwBT3tqu0ybmCYRW7ifbC2czNY4HY\&autorefresh=true)
 * [Intel Node s7200AP Motherboard ](https://www.ebay.com/itm/175459054222?chn=ps\&mkevt=1\&mkcid=28\&srsltid=AfmBOoohJXByD2O\_T4sNN\_D3dslds1MmITaKuzZw8q4M3CJVjTgRY3urObM\&com\_cvv=81c269aab9bc5fc4177fabac3c77acd26f491510dd5f94a06570d6c819846581)
-* Will blog post the benchmark like what Gamozo did.&#x20;
+* I will blog about the benchmark like Gamozo did.&#x20;
 
 
 
