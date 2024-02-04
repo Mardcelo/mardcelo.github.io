@@ -16,7 +16,7 @@
 
 ## Assembly&#x20;
 
-* [Page 2](assembly/page-2.md)
+* [SSE introduction](assembly/sse-introduction.md)
 
 ## Rust&#x20;
 
