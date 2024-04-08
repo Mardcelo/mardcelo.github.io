@@ -31,7 +31,6 @@ github_username:  Mardcelo
 
 # Build settings
 theme: minima
-markdown: kramdown
 plugins:
   - jekyll-feed
 
