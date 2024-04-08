@@ -21,7 +21,7 @@ $C_{21}$ the subscript 2 and 1 should represent i and j from the equation.
 
 But for the application in real life, usually C = C + AB is implemented instead of C = AB. 
 
-Given that two $n$ x $n$ matrices A, B. MMM computed as C= C + AB by definition
+Given that two $n$ x $n$ matrices A, B. MMM computed as C = C + AB requires $n^3$ additions for total of $2n^3$ = $O(n^3)$ floating point operations. Since the matrices have size of O(n^2), the reuse is given by $O(n^3 \over n^2)$ which is $O(n)$.
 
 ### Strassen's Algorithm 
 
