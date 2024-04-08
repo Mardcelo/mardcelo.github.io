@@ -10,10 +10,13 @@ Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel func
 
 ### Equation 
 
+TODO: add image 
+
 Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$ the product $C = AB$ is a $k$ x $m$ matrix with entries. 
 
 So assume if you have 2 by 3, 3 by 2 matrices 
 
+TODO: add image 
 
 The end product should look like $C_{21}$ = $a_{21}\ b_{11}$ + $a_{22}\ b_{21}$ + $a_{23}\ b_{31}$  
 
