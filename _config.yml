@@ -33,6 +33,7 @@ github_username:  Mardcelo
 theme: minima
 plugins:
   - jekyll-feed
+  - mathjax
 
 
 # Exclude from processing.
