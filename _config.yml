@@ -31,8 +31,10 @@ github_username:  Mardcelo
 
 # Build settings
 theme: minima
+markdown: kramdown
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
