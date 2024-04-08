@@ -3,7 +3,6 @@ layout: post
 title:  "MMM - Matrix-Matrix Multiplication: Experiment"
 date:   2024-03-30 02:10:10 +0100
 categories: Algorithm 
-usemathjax: true
 ---
 ### Introduction
 
