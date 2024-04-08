@@ -8,6 +8,10 @@ categories: Algorithm
 
 Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling.  
 
+#### Floating point operations 
+
+#### Big O notation
+
 ### Equation 
 
 TODO: add image 
