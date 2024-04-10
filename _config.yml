@@ -10,8 +10,7 @@ title: Mard's Blog
 #email: @
 description: > # this means to ignore newlines until "baseurl:"
     Mard's Researches 
-baseurl: "/mard/blog" # the subpath of your site, e.g. /blog
-url: "https://blog.mard.kr" # the base hostname & protocol for your site
+url: "http://blog.mard.kr" # the base hostname & protocol for your site
 twitter_username: 0xmard
 github_username:  mardcelo
 linkedin_username: mardcelo
