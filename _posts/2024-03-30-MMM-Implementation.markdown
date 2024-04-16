@@ -9,10 +9,18 @@ usemathjax: true
 
 Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling.  
 
-#### Floating point operations 
+#### Floating Point Operations 
 
 #### Big O notation
+Big O (Big-Oh) notation is a mathematical notation that is about finding an asymptotic upper bound.
+This can be shown as: 
 
+$$O(f(n))$$ 
+
+Where: 
+  $n$ is the input size 
+  $f$ is a function 
+  
 ### Equation 
 
 TODO: add image 
