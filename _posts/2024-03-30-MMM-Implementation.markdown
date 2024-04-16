@@ -18,7 +18,9 @@ This can be shown as:
 $$O(f(n))$$ 
 
 Where: 
+
   $n$ is the input size 
+  
   $f$ is a function 
   
 ### Equation 
