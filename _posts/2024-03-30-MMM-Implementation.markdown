@@ -11,14 +11,17 @@ Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel func
 
 #### Floating Point Operations 
 
+TODO: Prob bring CMU system programming 
+
 #### Big O notation
+
 Big O (Big-Oh) notation is a mathematical notation that is about finding an asymptotic upper bound.
 
 This can be shown as: 
 
 $$O(f(n))$$ 
 
-Where: 
+**Where:** 
 
   $n$ is the input size 
   
