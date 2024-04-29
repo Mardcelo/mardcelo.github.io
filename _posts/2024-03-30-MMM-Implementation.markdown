@@ -26,7 +26,7 @@ Where:
   
 ### Equation 
 
-$$C_{ij} = \sum\limits_{k = 1}^m {a_{i,k}\b_{k,j}}$$
+$$C_{ij} = \sum\limits_{k = 1}^m {a_{i,k}\ b_{k,j}}$$
 
 Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$ the product $C = AB$ is a $k$ x $m$ matrix with entries. 
 
