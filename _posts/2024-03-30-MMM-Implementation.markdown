@@ -32,13 +32,7 @@ Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$
 
 So assume if you have $2$ by $3$, $3$ by $2$ matrices 
 
-$$\begin{pmatrix}
-a_{11} & a_{12} & a_{13}\\
-a_{21} & a_{22} & a_{23} 
-\end{pmatrix}$$    
-
-$$\begin{bmatrix} a_{1,1} & a_{1,2} \\ a_{2,1} & a_{2,2}\end{bmatrix}\begin{bmatrix}b_{1,1} & b_{1,2} \\ b_{2,1} & b_{2,2}\end{bmatrix} \boldsymbol{\neq} \begin{bmatrix}a_{1,1}b_{1,1} & a_{1,2}b_{1,2} \\ a_{2,1}b_{2,1} & a_{2,2}b_{2,2}\end{bmatrix}$$
-
+$$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23}\end{pmatrix}\begin{pmatrix}b_{11} & b_{12} \\ b_{21} & b_{22} \\ b_{31} & b_{32}\end{pmatrix}$$ 
 
 The end product should look like $C_{21}$ = $a_{21}\ b_{11}$ + $a_{22}\ b_{21}$ + $a_{23}\ b_{31}$  
 
