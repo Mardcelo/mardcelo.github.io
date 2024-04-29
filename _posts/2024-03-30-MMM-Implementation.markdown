@@ -15,7 +15,7 @@ TODO: Prob bring CMU system programming
 
 #### Big O notation
 
-Big O (Big-Oh) notation is a mathematical notation that is about finding an asymptotic upper bound.
+Big O (Big-Oh) notation is a mathematical notation that is about finding an asymptotic upper bound. Why this is important? Because, this is also a way to measure how fast is your algorithm. 
 
 This can be shown as: 
 
