@@ -35,7 +35,9 @@ Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$
 
 So assume if you have $2$ by $3$, $3$ by $2$ matrices 
 
+
 $$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23}\end{pmatrix}\begin{pmatrix}b_{11} & b_{12} \\ b_{21} & b_{22} \\ b_{31} & b_{32}\end{pmatrix}$$ 
+
 
 The end product should look like $C_{21}$ = $a_{21}\ b_{11}$ + $a_{22}\ b_{21}$ + $a_{23}\ b_{31}$  
 
@@ -45,7 +47,7 @@ But for the application in real life, usually $C$ = $C\+\ AB$ is implemented ins
 
 Given that two $n$ x $n$ matrices $A$, $B$. 
 MMM computed as $C$ = $C\+\ AB$ requires $n^3$ additions for total of $2n^3$ = $O(n^3)$ floating point operations. 
-Since the matrices have size of $O(n^2)$, the reuse is given by $O({n^3 \over n^2})$ which is $O(n)$.
+Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^2})$, which is $O(n)$.
 
 ### Strassen's Algorithm 
 
