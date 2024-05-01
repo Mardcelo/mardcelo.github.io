@@ -33,6 +33,8 @@ $$C_{ij} = \sum\limits_{k = 1}^m {a_{i,k}\ b_{k,j}}$$
 
 Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$ the product $C = AB$ is a $k$ x $m$ matrix with entries. 
 
+### Example 
+
 So assume if you have $2$ by $3$, $3$ by $2$ matrices 
 
 
