@@ -1,5 +1,5 @@
 ---
-layout: Talks
+layout: page
 title: Talks
 permalink: /talks/
 ---
