@@ -51,7 +51,9 @@ Given that two $n$ x $n$ matrices $A$, $B$.
 MMM computed as $C$ = $C\+\ AB$ requires $n^3$ additions for total of $2n^3$ = $O(n^3)$ floating point operations. 
 Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^2})$, which is $O(n)$.
 
-### Strassen's Algorithm 
+### Experiment 
+
+This experiment is to check the knowledge in MMM Multiplication that I have learnt during the courses I took. 
 
 
 
