@@ -55,6 +55,7 @@ Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^
 
 This experiment is to check the knowledge in MMM Multiplication that I have learnt during the courses I took. 
 
+**MMM.c**
 ```c
 #include<stdlib.h>
 #include<stdio.h>
