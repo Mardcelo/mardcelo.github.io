@@ -7,4 +7,5 @@ categories: UEFI
 
 ### Introduction
 
+In this blog post, it will introduce how to program in UEFI. 
 
