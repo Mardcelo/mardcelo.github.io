@@ -98,5 +98,4 @@ int main(int argc, const char *argv[]) {
     printf("%0.6f seconds\n", time_difference(&start, &end));
     return 0;
 
-}```
-
+}
