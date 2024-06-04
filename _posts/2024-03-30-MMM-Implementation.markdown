@@ -5,13 +5,18 @@ date:   2024-03-30 02:10:10 +0100
 categories: Algorithm 
 usemathjax: true
 ---
+
 ### Introduction
 
-Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling.  
+Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling. I was trying to test some stuffs out since I just started learning optimizations, and also high performance programming after getting Intel Xeon Phi. 
 
 #### Floating Point Operations 
 
-TODO: Prob bring CMU system programming 
+Floating point operations are mathemtical operations that involve floating point numbers. These operations are required for signed calculation and are used in embedded applicaitons. They are IEEE Standard 754 for Binary Floating-Point Arithmetic. 
+
+It is important attribute in developing the flaoting-point algorithms. 
+
+---
 
 #### Big O notation
 
@@ -27,11 +32,15 @@ $$O(f(n))$$
   
   $f$ is a function 
   
+---
+
 ### Equation 
 
 $$C_{ij} = \sum\limits_{k = 1}^m {a_{i,k}\ b_{k,j}}$$
 
 Given a $k$ x $m$ matrix $A = [a_{i,j}]$ and an $m$ x $n$ matrix $B = [b_{i,j}]$ the product $C = AB$ is a $k$ x $m$ matrix with entries. 
+
+---
 
 ### Example 
 
@@ -51,9 +60,13 @@ Given that two $n$ x $n$ matrices $A$, $B$.
 MMM computed as $C$ = $C\+\ AB$ requires $n^3$ additions for total of $2n^3$ = $O(n^3)$ floating point operations. 
 Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^2})$, which is $O(n)$.
 
+---
+
 ### Experiment 
 
 This experiment is to check the knowledge in MMM Multiplication that I have learnt during the courses I took. 
+
+---
 
 **MMM.c**
 ```c
