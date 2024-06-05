@@ -10,6 +10,8 @@ usemathjax: true
 
 Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling. I was trying to test some stuffs out since I just started learning optimizations, and also high performance programming after getting Intel Xeon Phi. 
 
+---
+
 #### Floating Point Operations 
 
 Floating point operations are mathemtical operations that involve floating point numbers. These operations are required for signed calculation and are used in embedded applicaitons. They are IEEE Standard 754 for Binary Floating-Point Arithmetic. 
