@@ -8,7 +8,9 @@ usemathjax: true
 
 ### Introduction
 
-Matrix-Matrix Multiplication (MMM) is one of the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling. I was trying to test some stuffs out since I just started learning optimizations, and also high performance programming after getting Intel Xeon Phi. 
+Matrix-Matrix Multiplication (MMM) is one for the important numerical kernel functionality, used in various places such areas as Network, Linear Systems of Equation, Transformation of Co-ordinate Systems, and population modeling. 
+
+I was trying to test some stuffs out since I just started learning optimizations, and also high performance programming after getting Intel Xeon Phi. The codes from this slides was rather taken in some lecture that I have learnt, or made by myself while working on optimization.  
 
 ---
 
@@ -69,6 +71,7 @@ Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^
 This experiment is to check the knowledge in MMM Multiplication that I have learnt during the courses I took. 
 
 ---
+
 
 **MMM.c**
 
