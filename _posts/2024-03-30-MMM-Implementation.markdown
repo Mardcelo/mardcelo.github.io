@@ -76,9 +76,9 @@ This experiment is to check the knowledge in MMM Multiplication that I have lear
 **MMM.c**
 
 ```c
-#include<stdlib.h>
-#include<stdio.h>
-#include<sys/time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/time.h>
 
 #define n 1024
 double A[n][n];
