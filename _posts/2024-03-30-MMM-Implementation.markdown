@@ -61,8 +61,10 @@ $C_{21}$ the subscript $2$ and $1$ should represent $i$ and $j$ from the equatio
 But for the application in real life, usually $C$ = $C\+\ AB$ is implemented instead of $C$ $=\ AB$. 
 
 Given that two $n$ x $n$ matrices $A$, $B$. 
+
 MMM computed as $C$ = $C\+\ AB$ requires $n^3$ additions for total of $2n^3$ = $O(n^3)$ floating point operations. 
-Since the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^2})$, which is $O(n)$.
+
+Since, the matrices have size of $O(n^2)$. The reuse is given by $O({n^3 \over n^2})$, which is $O(n)$.
 
 ---
 
@@ -73,7 +75,7 @@ This experiment is to check the knowledge in MMM Multiplication that I have lear
 ---
 
 
-**MMM.c**
+### **MMM.c** ###
 
 ```c
 #include <stdlib.h>
@@ -117,4 +119,36 @@ int main(int argc, const char *argv[]) {
 }
 ```
 
-Yes yes, I know I suck at coding, but wanted to try something here 
+Code might be messy, but it does the work 
+
+This code performs martrix multiplication of two n x n matrices A and B, and stores the result in matrix C. Where, the size of the matrices is defined as a constant n = 1024. 
+
+The code intilizes the matrices A, B, and C by filling them with random values from 0 and 1 using the `rand()` function from the `stdio.h`. 
+
+And then, the code measures the time it takes to perform the matrix multiplication using the `gettimeofday()` funciton from the `sys/time.h` library. 
+
+The start time is recoded before the multiplication, and the end time is recorded after the multiplication has finished. And then the elapsed time is then calculated by subtracting the start time and the end time using the `tdiff()` function (time difference). 
+
+The matrix multiplication is performed using three nested for loops. 
+The outer two loops iterate over the rows and columns of matrix C, while the inner loop iterates over the columns of matrix A and the rows of matrix B. 
+
+The value of each element of matrix C is calculated as the sum of the products of corresponding elements in the rows of matrix A and columns of matrix B. 
+
+After all of these painful jobs, they elapsed time is printed to the console using the `printf()` function. 
+
+---
+### How to Measure Runtime? 
+
+Like what we used `gettimeofday()`, there is few options that have different usage and you can choose from them for what purpose you are using. Since, you need to measure only what you want to measure, and proper machine state. 
+
+1. C `clock()`
+    - Process specific, low resolution, very portable.
+
+2. `gettimeofday()`
+     - Measures wall clock tim , higher resolution, somewhat portable.
+
+3. Performance counter (e.g, TSC on Intel)
+     - Measures cycles (also wall clock time), highest resolution, not portable.
+     - Problematic with frequency scaling
+   
+NOTE: Check how reproducible; if not repducible: fix it. 
