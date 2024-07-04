@@ -123,7 +123,7 @@ Code might be messy, but it does the work
 
 This code performs martrix multiplication of two n x n matrices A and B, and stores the result in matrix C. Where, the size of the matrices is defined as a constant n = 1024. 
 
-The code intilizes the matrices A, B, and C by filling them with random values from 0 and 1 using the `rand()` function from the `<stdio.h>`. 
+The code intilizes the matrices A, B, and C by filling them with random values from 0 and 1 using the `rand()` function from the `<stdlib.h>`. 
 
 And then, the code measures the time it takes to perform the matrix multiplication using the `gettimeofday()` funciton from the `<sys/time.h>` library. 
 
