@@ -2,7 +2,7 @@
 layout: post
 title:  "MMM - Matrix-Matrix Multiplication: Experiment"
 date:   2024-03-30 02:10:10 +0100
-categories: Algorithm 
+categories: Algorithm, Optimization 
 usemathjax: true
 ---
 
@@ -152,3 +152,15 @@ Like what we used `gettimeofday()`, there is few options that have different usa
      - Problematic with frequency scaling
    
 NOTE: Check how reproducible; if not repducible: fix it. 
+
+---
+## Sources/ Special Thanks 
+
+[Prof. Püschel]([url](https://acl.inf.ethz.ch/people/markusp/)) -> Thank you for the Amazing course ASL (Advanced System Lab)!  
+
+[Prof. Leiserson]([url](https://ocw.mit.edu/search/?q=Prof.+Charles+Leiserson)) -> Thank you for the Amazing course 6.172 (Performance Engineering Of Software Systems)!
+
+[Agner Fog Ph.D.  ]([url](https://www.agner.org/contact/?e=0#0)) -> Thank you for your dedication and hard work in Optimization field! 
+
+
+
