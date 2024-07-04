@@ -141,7 +141,7 @@ After all of these painful jobs, they elapsed time is printed to the console usi
 
 Like what we used `gettimeofday()`, there is few options that have different usage and you can choose from them for what purpose you are using. Since, you need to measure only what you want to measure, and proper machine state. 
 
-1. C `clock()`
+1.  `clock()` in C 
     - Process specific, low resolution, very portable.
 
 2. `gettimeofday()`
