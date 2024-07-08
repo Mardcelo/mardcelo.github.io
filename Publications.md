@@ -26,7 +26,7 @@ This talk was exclusively presented to International High-School of Wroclaw (IHS
 #### Basic Introduction of Intel's modern security mitigation on their newest CPU chips. 
 This talk was about the under-the-hood of Intel's modern security mitigation, CET (Contrl-Flow Enforcement Technology). 
 
-This talk was exclusively presented in the underground Discord server known as, The "Public" Land, to teach members how does this mitigation works, and also giving oppertunity to have "Workshop-based" learning approach by trying by theirselves. 
+This talk was exclusively presented in the underground Discord server known as, The "Public" Land, to teach members how does this mitigation works, and also giving oppertunity to have "Workshop-based" learning approach by exploring themselves how to bypass CET using WinDbg. 
 
 ---
 # **@ 2022**
