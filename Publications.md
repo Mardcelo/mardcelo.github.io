@@ -8,8 +8,8 @@ permalink: /pubs/
 # **@ 2024** 
 ---
 
-### **Die analysis and Reverse engineering on Modern Chip** #PAPER ##
-#### TBA (TO BE ANNOUNCED) ###
+### **Die analysis and Reverse engineering on Modern Chip** #Paper ##
+#### This name can be modified during the phase on writing. ####
 
 ---
 # **@ 2023** 
