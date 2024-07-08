@@ -14,4 +14,4 @@ I am Security researcher that had alcoholic courage to start security from young
 This also mean I had to face bunch of hard times earlier than anyone. During these phase, 
 I have suffered from mental illness, having Schizophernia and Depression. 
 
-I'm currently working with Mardslab and also studying with some University labs 
+I'm currently working as Head Researcher on MardLab, researching on advanced security research. 
