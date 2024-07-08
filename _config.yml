@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Mard's Blog 
+title: Mard (Rick) Kim 
 #email: @
 description: > # this means to ignore newlines until "baseurl:"
     Mard's Researches 
@@ -22,4 +22,4 @@ markdown: kramdown
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: mardlab 
+    shortname: Mardblog
