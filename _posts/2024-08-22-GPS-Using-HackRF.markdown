@@ -23,3 +23,4 @@ HackRF SDR is a civilian usage Software Defined Radio, which is a radio communic
 
 ![SDR Architecture](https://github.com/Mardcelo/mardcelo.github.io/blob/f306249c08a17eccdbbcfebf3b3e9eb0bdf0db95/_posts/Images/SDR_arch.png)
 
+This is the basic architecture of SDR, it might be differenet in real model, but you will get my idea.  
