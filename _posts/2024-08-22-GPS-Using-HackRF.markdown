@@ -6,3 +6,16 @@ categories: HackRF
 usemathjax: true
 ---
 
+# Introduction 
+
+GPS (Global Positioning System) is a satellite based navigation system and is used in our society such as, mapping, vehicle navigation and surveying. 
+
+GPS is also heavily used in military, like missiles, and GPS guided missiles have high exceptional navigational and surveying abilities. After GPS being launched, the warheads could be delivered to any part of the globe using the border of the onboard computer in the missile with the help of GPS satellite system. 
+GPS allows accurate targeting of various military weapons including ICBMs, cruise missiles, and precision guided weapons. 
+Well, it's really interesting since Weaponry projectiles with embedded GPS receivers need to be able to endure accelerations of 12,000 G and have been developed for use in 155mm. 
+
+HackRF is a civilian usage Software defined radio, which is a radio communication system which uses software for the modulation and demodulation of radio signals. SDR performs significant amounts of signal processing in a general purpose computer too. 
+
+
+
+
