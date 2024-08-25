@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GPS Using HackRF"
+title:  "GPS Using HackRF SDR"
 date:   2024-08-22 02:10:10 +0100
 categories: HackRF
 usemathjax: true
@@ -15,7 +15,7 @@ GPS allows accurate targeting of various military weapons including ICBMs, cruis
 Well, it's really interesting since Weaponry projectiles with embedded GPS receivers need to be able to endure accelerations of 
 12,000 G and have been developed for use in 155mm. 
 
-HackRF is a civilian usage Software defined radio, which is a radio communication system which uses software for the modulation and demodulation of radio signals. SDR performs significant amounts of signal processing in a general purpose computer too. 
+HackRF SDR is a civilian usage Software Defined Radio, which is a radio communication system which uses software for the modulation and demodulation of radio signals. SDR performs significant amounts of signal processing in a general purpose computer too. 
 
 
 
