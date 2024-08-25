@@ -17,5 +17,6 @@ Well, it's really interesting since Weaponry projectiles with embedded GPS recei
 
 HackRF SDR is a civilian usage Software Defined Radio, which is a radio communication system which uses software for the modulation and demodulation of radio signals. SDR performs significant amounts of signal processing in a general purpose computer too. 
 
-![SDR Architecture](https://github.com/Mardcelo/mardcelo.github.io/blob/f306249c08a17eccdbbcfebf3b3e9eb0bdf0db95/_posts/Images/SDR_arch.png))
+
+![SDR Architecture](https://github.com/Mardcelo/mardcelo.github.io/blob/f306249c08a17eccdbbcfebf3b3e9eb0bdf0db95/_posts/Images/SDR_arch.png)
 
