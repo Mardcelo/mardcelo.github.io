@@ -11,6 +11,9 @@ permalink: /pubs/
 ### **Die analysis and Reverse engineering on Modern Chip** #Paper ###
 #### This name can be modified during the phase on writing. ####
 
+### ** Ways to Bench✅ Fuzzers" 
+This talk was my first conference talk what i have done in-person and in major security conference. 
+
 ---
 # **@ 2023** 
 ---
