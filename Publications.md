@@ -14,6 +14,8 @@ permalink: /pubs/
 ### **Ways to Bench✅ Fuzzers** #Talk ###
 This talk was my first conference talk what i have done in-person and in major security conference. 
 
+This talk was exclusively presented at AlligatorCon Krakow 2024.
+
 ---
 # **@ 2023** 
 ---
