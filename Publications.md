@@ -7,14 +7,16 @@ permalink: /pubs/
 ---
 # **@ 2024** 
 ---
+### **Effectiveness of Statistical Evaluation on Fuzzers** #Paper 
+Topics not chosen. 
 
-### **Die analysis and Reverse engineering on Modern Chip** #Paper ###
-#### This name can be modified during the phase on writing. ####
+### **Die analysis and Reverse engineering on Modern Chip** ###
+Moved as Side-project for senior year project. 
 
 ### **Ways to Bench✅ Fuzzers** #Talk ###
 This talk was my first conference talk what i have done in-person and in major security conference. 
 
-This talk was exclusively presented at AlligatorCon Krakow 2024.
+This talk was presented @AlligatorCon Krakow 2024.
 
 ---
 # **@ 2023** 
