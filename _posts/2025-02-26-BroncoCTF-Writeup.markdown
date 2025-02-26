@@ -43,10 +43,10 @@ usemathjax: true
 ```
 # Table of contents
 1. [Introduction](#introduction)
-2. [Game Overview](#Game_Overview)
+2. [Game Overview](#overview)
 3. [Speedrun](#speedrun)
     1. [Exploit Time](#exploit)
-    2. [Technical Overview of Dex Explorer](#exploit)
+    2. [Technical Overview of Dex Explorer](#Dex)
 4. [Roblox Hyperion](#hyperion) 
 5. [After the BroncoCTF 2025](#aftermath)
 6. [Prevention](#prevention) 
@@ -59,7 +59,7 @@ I came back from Ireland, I had 1 hour and 30 minutes left. I had to speed run t
 I managed to rush back to my Desktop and then rushed for 10 minutes and solved the flag.
 I tried rather than the intended approach of “lol learn Lua and figure out commands”, I did “this game is really exploitable beyond the scope of this challenge”. I started to write this write-up.
 
-## Game Overview <a name="Game_Overview"></a>
+## Game Overview <a name="overview"></a>
 
 The game is based on a ported version of “The World’s Hardest Game 4” in Roblox.
 The game is about you controlling a red square, who must collect all yellow circles and avoid the blue circles while making it to the Green exit. The game might be simple, but it is very difficult.
@@ -179,7 +179,7 @@ Also, it's evident that popular games like Phantom Forces uses obfuscation to st
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/9f7e4c32-ecbb-4531-936c-cf9ad1227d5a.png)
 
-### Obfuscation <a name='obsfucation'></a>
+### Obfuscation <a name='obfuscation'></a>
 
 For obsfucating a game in Roblox, there is a lot of different tools. Let me list a few: 
 
