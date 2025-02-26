@@ -47,10 +47,10 @@ usemathjax: true
 3. [Speedrun](#speedrun)
     1. [Exploit Time](#exploit)
     2. [Technical Overview of Dex Explorer](#exploit)
-    3. 
-4. [Prevention](#prevention)
-    1. [Obsfucation](#Obsfucation) 
-    2. 
+4. [Roblox Hyperion](#hyperion) 
+5. [After the BroncoCTF 2025](#aftermath)
+6. [Prevention](#prevention) 
+7. [Obsfucation](#obsfucation)  
 
 ## Introduction <a name="introduction"></a>
 
@@ -114,9 +114,9 @@ Dex Explorer loader works like this:
 
 We are going to look more deeply into property viewer since it's very rooted with what we have used for CTF challenge. [TODO]
 
-## Roblox Hyperion  
+## Roblox Hyperion <a name="hyperion"></a>
 
-This section was heavily relied on a forum post on Unkowncheats. I had to time to verify which I will try to attach HyperDbg later if i have time.
+This section was heavily relied on a forum post on Unkowncheats. I had no time to verify about this section which I will try to attach HyperDbg later and make new blog post about it. 
 
 Instrumentation Callback (IC): This is Hyperion's central control point. It intercepts exceptions (like page faults when trying to execute encrypted code), system calls, and potentially other events. The IC is used for code decryption, integrity checks, and generally managing protected memory regions. It's essentially a custom exception handler prior to the standard Windows Exception Handling (WEH).
 
@@ -132,7 +132,7 @@ TEB Manipulation: Hyperion uses flags in the Thread Environment Block (TEB) to p
 
 Exception Handling Hijacking Prevention (Limited): The description notes that they validate event handlers and return addresses to prevent simple APC (Asynchronous Procedure Call) redirection, a common technique for injecting code. However, this doesn't mean exception handling is completely immune, as we'll see.
 
-### Limitations
+### Bypass Methods 
 
 >Hyperion is a robust anti-tamper but we must remember that they are running at CPL3 aka being usermode, so they have all the usermode constraints. This is why they are unable to detected rootkits and kernel manipulations or even hardware based hypervisors (which is why most people debug and trace with a hypervisor), another example, i said that they check for named objects and registry entries. Anyone can hide or remove these objects from hyperion's view by just hooking and intercepting calls to NtQueryDirectoryObject. Same for their syscalls, you can just unmap hyperion module, hook needed sycalls and remap their module.
 
@@ -149,7 +149,7 @@ Syscall Hooking (after Hyperion Unmapping): The description mentions unmapping H
 Page Decryption Abuse: While they decrypt on-the-fly, the decrypted page must exist in memory, however briefly. A sufficiently fast and well-timed memory scan might be able to capture the decrypted code. This is a race condition, and likely unreliable, but worth exploring. More realistically, you could focus on understanding the decryption routines themselves. If you can reverse engineer the decryption algorithm or key derivation, you could decrypt pages yourself.
 
 
-## After the BroncoCTF 2025 
+## After BroncoCTF <a name='aftermath'></a>
 
 After the BroncoCTF ended, I was talking with my team members about ability to copy the game. Where I found out it is very possible. 
 
@@ -178,11 +178,11 @@ Still, if the object loads into client side, there is no way to actually block e
 
 > After Roblox added filtering enabled this was also been mitigated somewhat. 
 
-Also, it's evident that popular games like Phantom Forces uses obfuscation to stop people who managed to save the place using `saveinstance` It's appearing in the game's console 
+Also, it's evident that popular games like Phantom Forces uses obfuscation to stop people who managed to save the place using `saveinstance()` It's appearing in the game's console 
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/9f7e4c32-ecbb-4531-936c-cf9ad1227d5a.png)
 
-### Obsfucation
+### Obsfucation <a name='obsfucation'></a>
 
 For obsfucating a game in Roblox, there is a lot of different tools. Let me list few: 
 
