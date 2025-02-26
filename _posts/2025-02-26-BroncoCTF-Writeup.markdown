@@ -184,7 +184,7 @@ Also, it's evident that popular games like Phantom Forces uses obfuscation to st
 
 ### Obsfucation <a name='obsfucation'></a>
 
-For obsfucating a game in Roblox, there is a lot of different tools. Let me list few: 
+For obsfucating a game in Roblox, there is a lot of different tools. Let me list a few: 
 
 1. [Prometheus](https://github.com/prometheus-lua/Prometheus) 
 2. [Synapse Secure](https://github.com/SnowyShiro/Synapse-SecureLua-Deobfuscator/tree/main)
