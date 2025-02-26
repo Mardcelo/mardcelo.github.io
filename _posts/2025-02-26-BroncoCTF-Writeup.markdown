@@ -78,7 +78,7 @@ I thought that if I attached a debugger to the client side I would be able to re
 
 ## Exploit Time <a name="exploit"></a>
 
-Using the DLL injection, I used loadstring() to load an existing tool called Dex Explorer, Which is a debugger suite for Roblox cheat development.
+Using the DLL injection, I used `loadstring()` to load an existing tool called Dex Explorer, Which is a debugger suite for Roblox cheat development.
 
 Using this I was able to have user side code view
 
