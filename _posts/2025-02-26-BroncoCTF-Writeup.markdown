@@ -150,7 +150,20 @@ Page Decryption Abuse: While they decrypt on-the-fly, the decrypted page must ex
 
 After the BroncoCTF ended, I was talking with my team members about the ability to copy the game. Where I found out, it is very possible.
 
-I used Synapse X's `saveinstance()` function to basically copy the game. 
+I used `SynSaveInstance()` with  function to basically copy the game. 
+
+```lua
+local Params = {
+	RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+	SSI = "saveinstance",
+}
+
+local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+
+local CustomOptions = { SafeMode = true, timeout = 15, SaveBytecode = true }
+
+synsaveinstance(CustomOptions)
+```
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/cf70d9b9-ea1e-4290-a9fa-11d82cfca502.png)
 
