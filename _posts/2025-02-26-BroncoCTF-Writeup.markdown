@@ -50,52 +50,49 @@ usemathjax: true
 4. [Roblox Hyperion](#hyperion) 
 5. [After the BroncoCTF 2025](#aftermath)
 6. [Prevention](#prevention) 
-7. [Obsfucation](#obsfucation)  
+7. [Obfuscation](#obfuscation)  
 
 ## Introduction <a name="introduction"></a>
 
+I came back from Ireland, I had 1 hour and 30 minutes left. I had to speed run to finish a few challenges that I thought it would be fun.
 
-I came back from Ireland, I had 1 hour and 30 minutes left. I had to speed run to finish a few challenges, I thought it would be fun. 
-
-I managed to rush back to my Desktop and then rushed for 10 minutes and solved the flag. 
-
-I tried rather the intended approach of "lol learn Lua and figure out commands", I did "this game is really exploitable beyond the scope of this challenge". Which I started to write this write-up. 
+I managed to rush back to my Desktop and then rushed for 10 minutes and solved the flag.
+I tried rather than the intended approach of “lol learn Lua and figure out commands”, I did “this game is really exploitable beyond the scope of this challenge”. I started to write this write-up.
 
 ## Game Overview <a name="Game_Overview"></a>
 
-The game is based on a ported version of "The World's Hardest Game 4" in Roblox. 
+The game is based on a ported version of “The World’s Hardest Game 4” in Roblox.
+The game is about you controlling a red square, who must collect all yellow circles and avoid the blue circles while making it to the Green exit. The game might be simple, but it is very difficult.
 
-The game is about you controlling a red square, who must collect all yellow circles and avoid the blue circles while making to the Green exit. The game might be simple, but it is very difficult. 
+This is version 4 of the game since the game introduces water obstacles, which you can drown in. and ice obstacles, which makes movement difficult, etc.
 
-This is version 4 of the game since the game introduces water obstacles, which you can drown in. and ice obstacles, which makes movement difficult, etc. 
-
-There is also a Settings menu, and Command bar, where what challenge developer was expecting was trying to use the command to somehow reveal the flag.
+There is also a Settings menu, and Command bar, where what challenge the developer was expecting was trying to use the command to somehow reveal the flag.
 
 ## Speedrun <a name="speedrun"></a>
 
-Since if we see in the console, we can see that the client side isn't obfuscated. 
+Since if we see in the console, we can see that the client side isn’t obfuscated.
 
 ![Game Console](http://ctfnote.frogcouncil.team/pad/uploads/447063e6-7961-46b5-b4b0-abc66b217f08.png)
 
-I thought that if I attach a debugger into the client side would be able to retrieve the flag and the source code. 
+I thought that if I attached a debugger to the client side I would be able to retrieve the flag and the source code.
 
 ## Exploit Time <a name="exploit"></a>
 
-Using the DLL injection, I used `loadstring()` to load an existing tool called [Dex Explorer](https://github.com/LorekeeperZinnia/Dex/tree/master), Which is a debugger suite for Roblox cheat development. 
+Using the DLL injection, I used loadstring() to load an existing tool called Dex Explorer, Which is a debugger suite for Roblox cheat development.
 
-Using this I was able to have user side code view 
+Using this I was able to have user side code view
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/4d64d33a-6044-4bb1-ba67-14e67d19c8a6.png)
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/00dca873-12cf-4a22-b1a4-85b9003b9d32.jpg)
 
-Boom, `bronco{n0th1ng_1s_2oo_h4rd_4_m3!}` Got the flag in under 2 minuetes  
+Boom, `bronco{n0th1ng_1s_2oo_h4rd_4_m3!}` Got the flag in under 2 minutes
 
 So, how does this script work? 
 
-Great question, since people are lazy, I did some analysis about it 
+Great question, since people are lazy, I did some analysis of it
 
-## Technical Overview of Dex Explorer  <a name="Dex"></a>
+## Technical Overview of Dex Explorer [TODO]  <a name="Dex"></a>
 
 Dex Explorer loader works like this:
 
@@ -151,16 +148,16 @@ Page Decryption Abuse: While they decrypt on-the-fly, the decrypted page must ex
 
 ## After BroncoCTF <a name='aftermath'></a>
 
-After the BroncoCTF ended, I was talking with my team members about ability to copy the game. Where I found out it is very possible. 
+After the BroncoCTF ended, I was talking with my team members about the ability to copy the game. Where I found out, it is very possible.
 
 I used Synapse X's `saveinstance()` function to basically copy the game. 
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/cf70d9b9-ea1e-4290-a9fa-11d82cfca502.png)
 
-This also allowed me to get the flag `bronco{n0th1ng_1s_2oo_h4rd_4_m3!}` 
+This also allowed me to get the flag `bronco{n0th1ng_1s_2oo_h4rd_4_m3!}`
 This was quite an interesting method
 
-Yoshi made a mistake on putting the flag on StarterGui, Which to stop this you will have to put place your gui’s in replicated storage UNLESS they are used almost the entire time the player is in the game, main gui’s that are constantly shown can just be in starter gui, no point in not having them there. 
+Yoshi made a mistake on putting the flag on `StarterGui`, Which to stop this you will have to put place your GUI’s in `Replicated Storage` unless they are used almost the entire time the player is in the game, main GUI’s that are constantly shown can just be in `Starter GUI`, no point in not having them there.
 
 Or just like I said, obfuscate the shit out of the game, so nobody knows what's going on, but this challenge was meant to be open-end. 
 
@@ -176,13 +173,13 @@ To stop codes getting stolen, keep everything in server side, rather trusting th
 
 Still, if the object loads into client side, there is no way to actually block exploiters to steal assets. But you can at least stop them stealing your code that is "made with love".
 
-> After Roblox added filtering enabled this was also been mitigated somewhat. 
+> After Roblox added `filtering enabled` this was also been mitigated somewhat. 
 
 Also, it's evident that popular games like Phantom Forces uses obfuscation to stop people who managed to save the place using `saveinstance()` It's appearing in the game's console 
 
 ![](http://ctfnote.frogcouncil.team/pad/uploads/9f7e4c32-ecbb-4531-936c-cf9ad1227d5a.png)
 
-### Obsfucation <a name='obsfucation'></a>
+### Obfuscation <a name='obsfucation'></a>
 
 For obsfucating a game in Roblox, there is a lot of different tools. Let me list a few: 
 
