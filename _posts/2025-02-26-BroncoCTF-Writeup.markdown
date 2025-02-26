@@ -95,9 +95,6 @@ So, how does this script work?
 
 Great question, since people are lazy, I did some analysis about it 
 
-![](http://ctfnote.frogcouncil.team/pad/uploads/88ae6a1c-b829-4908-ba9d-a69f92a0f543.png)
-
-
 ## Technical Overview of Dex Explorer  <a name="Dex"></a>
 
 Dex Explorer loader works like this:
