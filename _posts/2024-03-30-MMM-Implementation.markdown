@@ -162,6 +162,3 @@ NOTE: Check how reproducible; if not repducible: fix it.
 
 [Agner Fog Ph.D.  ]([url](https://www.agner.org/contact/?e=0#0)) -> Thank you for your dedication and hard work in Optimization field! 
 
-
-
-$$\mathcal{L} = (b_1,..., b_m) =  \left\lbrace  \sum_{i=1}^m \alpha_i b_i \in \mathbb{Z} \right\}  $$
