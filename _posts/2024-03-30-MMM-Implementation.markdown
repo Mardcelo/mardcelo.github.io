@@ -164,3 +164,4 @@ NOTE: Check how reproducible; if not repducible: fix it.
 
 
 
+$$\mathcal{L} = (b_1,..., b_m) =  \left\lbrace  \sum_{i=1}^m \alpha_i b_i \in \mathbb{Z} \right\}  $$
