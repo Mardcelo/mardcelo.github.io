@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bronco CTF World's Hardester Flag Writeup "
+title:  "Test"
 date:   2025-02-26 02:10:10 +0100
 categories: CTF 
 usemathjax: true
