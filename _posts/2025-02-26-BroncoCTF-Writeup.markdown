@@ -92,7 +92,7 @@ So, how does this script work?
 
 Great question, since people are lazy, I did some analysis of it
 
-## Technical Overview of Dex Explorer [TODO]  <a name="Dex"></a>
+## Technical Overview of Dex Explorer: Peeking Under the Hood <a name="Dex"></a>
 
 Dex Explorer loader works like this:
 
@@ -110,12 +110,6 @@ Dex Explorer loader works like this:
 12. Start the Main Execution
 
 We are going to look more deeply into property viewer since it's very rooted with what we have used for CTF challenge. 
-
-Okay, here's that "Technical Overview of Dex Explorer" section, expanded and written in a blog post format.
-
----
-
-## Technical Overview of Dex Explorer: Peeking Under the Hood <a name="Dex"></a>
 
 So, how does a powerful tool like Dex Explorer actually work its magic inside a Roblox game? The `loadstring()` function I used was just the tip of the iceberg. Let's delve into the common principles behind how these in-game explorers operate. It's important to note that this is a general overview, as specific implementations can vary.
 
