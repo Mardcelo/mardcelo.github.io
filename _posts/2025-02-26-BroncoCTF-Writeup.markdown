@@ -109,7 +109,60 @@ Dex Explorer loader works like this:
 11. Initialize Explorer & Properties
 12. Start the Main Execution
 
-We are going to look more deeply into property viewer since it's very rooted with what we have used for CTF challenge. [TODO]
+We are going to look more deeply into property viewer since it's very rooted with what we have used for CTF challenge. 
+
+Okay, here's that "Technical Overview of Dex Explorer" section, expanded and written in a blog post format.
+
+---
+
+## Technical Overview of Dex Explorer: Peeking Under the Hood <a name="Dex"></a>
+
+So, how does a powerful tool like Dex Explorer actually work its magic inside a Roblox game? The `loadstring()` function I used was just the tip of the iceberg. Let's delve into the common principles behind how these in-game explorers operate. It's important to note that this is a general overview, as specific implementations can vary.
+
+Dex Explorer, at its core, is a suite of Lua scripts that execute *within the Roblox client's environment*. It's not an external program in the traditional sense but rather an advanced `LocalScript` with a very fancy GUI.
+
+Here's a breakdown of its likely operational principles:
+
+1.  **Entry Point & Execution Context:**
+    *   **`loadstring()` is Key:** The journey begins when the client executes the Dex loader script via `loadstring(game:HttpGet("...", true))`. This function compiles and runs a string as Lua code.
+    *   **Client-Side Privileges:** Once loaded, Dex operates with the same level of access as any other `LocalScript` in the game. This means it can directly interact with client-side instances, services, and the game's environment (e.g., the `game` global, `workspace`, `Players.LocalPlayer`, `StarterGui`).
+
+2.  **Roblox API Interaction & Introspection:**
+    *   **Leveraging Core Services:** Dex extensively uses Roblox's built-in services to gather information. For example:
+        *   `game:GetService("Players")` to get player information.
+        *   `game:GetService("Workspace")` to access the 3D game world.
+        *   `game:GetService("StarterGui")` to see UI elements (where our flag was!).
+    *   **Instance Hierarchy Traversal:** To build its familiar explorer tree view, Dex needs to navigate the `Instance` hierarchy. It achieves this by:
+        *   Recursively calling `Instance:GetChildren()` on objects starting from `game`.
+        *   Potentially listening to signals like `Instance.ChildAdded` and `Instance.ChildRemoved` to keep its view dynamically updated if new objects are created or destroyed while Dex is running.
+    *   **Property Access:** This is fundamental. Dex reads the properties of any selected `Instance` using standard Lua table indexing. For example, to get an object's name, it would essentially do `selectedObject.Name`. To get a script's source, it would read `someScript.Source`.
+    *   **Function Hooking (Advanced Usage):** While not strictly necessary for just viewing properties (as in our CTF case), more comprehensive versions of Dex or similar tools might employ function hooking. They can replace or wrap common Roblox functions (e.g., `Instance.new`, methods on services) by manipulating Lua environments or metatables. This allows them to log activities, intercept data, or even modify behavior, offering much deeper analytical capabilities.
+
+3.  **Reflection Metadata (RMD) - The Secret Sauce for Detail:**
+    *   Roblox's engine contains internal data known as "Reflection Metadata" (RMD). This metadata is a comprehensive database describing all engine classes (like `Part`, `TextLabel`, `Script`, etc.), their properties, methods, events, and signals. It includes information about data types and security contexts.
+    *   Dex likely fetches, parses, or has a pre-compiled version of this RMD. This is what enables it to:
+        *   Display a complete list of *all* properties an `Instance` has, often more than what's visible in Roblox Studio.
+        *   Show the correct data type for each property (e.g., `string`, `number`, `bool`, `Vector3`, `Instance` reference).
+        *   Potentially identify and display hidden, deprecated, or internal engine properties (though accessing truly protected ones would still be blocked by engine security).
+
+4.  **User Interface (UI) Integration:**
+    *   The entire Dex Explorer interface (the tree view, property pane, script editor, command bar, etc.) is built using Roblox's own UI elements: `ScreenGui`, `Frame`, `TextLabel`, `TextBox`, `ScrollingFrame`, and so on.
+    *   The Dex scripts dynamically create, position, and manage these UI objects to present the gathered information to the user and to handle user interactions like clicks and text input.
+
+5.  **Modular Design & Data Fetching:**
+    *   Complex tools like Dex are often modular. The initial script loaded via `loadstring()` might be a lightweight "loader."
+    *   This loader then fetches other, larger Lua modules containing the core logic for the explorer, property viewer, script editor, etc. These modules might be fetched from an external URL (as seen with the `RepoURL` in the `SynSaveInstance` example) or embedded as strings within the loader itself.
+    *   The "Load & Fetch API Data" and "Load and Fetch RMD" steps you outlined in your initial understanding refer to Dex obtaining the necessary class and property definitions, either by downloading them or having them bundled.
+
+### The Property Viewer: Finding Our Flag
+
+For this CTF, the property viewer was the star. When you select an object in Dex's explorer tree:
+
+1.  **Instance Selection:** The clicked `Instance` (e.g., an object inside `StarterGui`) becomes the target for the property viewer.
+2.  **RMD Lookup:** Dex consults its Reflection Metadata for the class of the selected `Instance` (e.g., if you selected a `TextLabel`, it looks up "TextLabel").
+
+In our CTF case, the flag `bronco{n0th1ng_1s_2oo_h4rd_4_m3!}` was likely stored as a simple string in a property like `.Name`, `.Text` (if it was a `TextLabel` or similar), or `.Value` (if it was a `StringValue` object). Since `StarterGui` objects are client-side and the game wasn't heavily obfuscated, Dex could easily traverse to this object and read that property. Hyperion's defenses either weren't triggered by this type of passive information reading in this specific CTF setup or were not fully active.
+
 
 ## Roblox Hyperion <a name="hyperion"></a>
 
@@ -125,7 +178,7 @@ Read-Only, Encrypted View: This is the "default" view, presented to most of the 
 
 Writable, Decrypted View: This view is likely used internally by the IC to perform decryption and modifications. This separation prevents one thread from modifying the memory while another thread is reading/executing it, a classic race condition vulnerability.
 
-TEB Manipulation: Hyperion uses flags in the Thread Environment Block (TEB) to prevent recursion within its own IC. This is a defensive measure to avoid infinite loops or stack overflows if the IC itself causes an exception. The TEB is a per-thread data structure that contains information about the thread, including exception handling details.
+TEB Flag Manipulation: The Thread Environment Block (TEB) is a per-thread data structure in Windows that holds crucial information, including details about exception handling. Hyperion reportedly uses specific flags within the TEB, potentially to prevent recursive calls to its Instrumentation Callback or to enable/disable certain checks. If an attacker can identify and manipulate these flags (e.g., by writing to the TEB from an injected DLL or a debugger), they might be able to effectively bypass or disable parts of Hyperion's checking mechanisms. The challenge lies in pinpointing the exact flags and understanding their purpose.
 
 Exception Handling Hijacking Prevention (Limited): The description notes that they validate event handlers and return addresses to prevent simple APC (Asynchronous Procedure Call) redirection, a common technique for injecting code. However, this doesn't mean exception handling is completely immune, as we'll see.
 
