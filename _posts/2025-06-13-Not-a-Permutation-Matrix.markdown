@@ -22,7 +22,7 @@ usemathjax: true
 <details>
     <summary>Challenge File</summary>
     
-```sage=
+```sage
 import random
 from base64 import b64encode, b64decode
 from functools import reduce
