@@ -18,11 +18,8 @@ usemathjax: true
 > 
 >**Description:**
 > I got a permute, I got a matrix, permute matrix.
-
-<details>
-    <summary>Challenge File</summary>
     
-```
+```sage
 import random
 from base64 import b64encode, b64decode
 from functools import reduce
@@ -69,8 +66,6 @@ if __name__ == "__main__":
 # Program output:
 # aO3qDbHFoittWTN6MoUYw9CZiC9jdfftFGw1ipES89ugOwk2xCUzDpPdpBWtBP3yarjNOPLXjrMODD
 ```
-
-</details>
 
 ## Background
 
