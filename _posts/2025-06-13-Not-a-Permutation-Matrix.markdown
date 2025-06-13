@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Not a Permutation Matrix Writeup"
+date:   2025-06-13 02:10:10 +0100
+categories: CTF 
+usemathjax: true
+---
+
 # [GreyCat CTF] Not a Permutation Matrix 
 
 - [name=Mard (Rick) Kim]
