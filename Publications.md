@@ -5,6 +5,12 @@ permalink: /pubs/
 ---
 
 ---
+# **@ 2025**
+---
+### Introduction to Fault Injection by Lasers 
+This talk was presented at Rubiya's seminar section of the meetup. Really fun time, I really enjoyed meeting people in-person. :) 
+
+---
 # **@ 2024** 
 ---
 ### **Effectiveness of Statistical Evaluation on Fuzzers** #Paper 
