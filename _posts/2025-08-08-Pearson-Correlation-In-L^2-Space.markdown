@@ -33,7 +33,7 @@ $$Y' = Y- \bar{Y}$$
 
 Here, $X$ and $Y$ are treated as vectors in $\mathbb{R}^n$, and $\bar{X}$ and $\bar{Y}$ are scalar multiples of the vector of ones. With the standard Euclidean inner product $\langle A, B \rangle = \sum{A_i B_i}$ the PCC formula can be transformed into the cosine of the angle $\theta$ between these centered vectors 
 
-$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{\Vert X'\Vert  \cdot \Vert Y'\Vert } = \cos (\theta)$$
+$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{\vert  X'\vert   \cdot \vert  Y'\vert  } = \cos (\theta)$$
 
 This gives us some clear understanding using geometric foundation. But to generalize this concept from finite data points to continuous random variables, we have to change our perspective form finite-dimensional Euclidean space to an infinite-dimensional function space, which brings us to the Hilbert's space. 
 # Introduction to Hilbert's space 
@@ -52,19 +52,19 @@ $$ \psi, \varphi \in \mathbb{H} \space \text{and} \space a,b \in \mathbb{C} \Rig
 
 (ii) with a (positive-definite) scalar product 
 
-$$ \langle \cdot\vert\cdot \rangle : \mathbb{H} \times \mathbb{H} \longrightarrow \mathbb{C} $$
-$$ (\psi, \varphi) \longmapsto \langle \psi\vert\varphi \rangle $$
+$$ \langle \cdot\vert \cdot \rangle : \mathbb{H} \times \mathbb{H} \longrightarrow \mathbb{C} $$
+$$ (\psi, \varphi) \longmapsto \langle \psi\vert \varphi \rangle $$
 such that for all $\varphi, \psi, \varphi_{1}, \varphi_{2}$
 
-$$\langle\psi\vert\varphi\rangle = \overline{\langle\varphi\vert\psi\rangle}$$
-$$ \langle \psi\vert\psi \rangle \ge 0 $$ 
-$$ \langle \psi\vert\psi \rangle = 0 \iff \psi = 0 $$ 
-$$ \langle \psi\verta\varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert\varphi_1 \rangle + b \langle \psi \varphi_2 \rangle $$ 
+$$\langle\psi\vert \varphi\rangle = \overline{\langle\varphi\vert \psi\rangle}$$
+$$ \langle \psi\vert \psi \rangle \ge 0 $$ 
+$$ \langle \psi\vert \psi \rangle = 0 \iff \psi = 0 $$ 
+$$ \langle \psi\vert a\varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert \varphi_1 \rangle + b \langle \psi \varphi_2 \rangle $$ 
 
 and this scalar product induces a norm 
 
-$$\Vert \cdot\Vert : \mathbb{H} \longrightarrow \mathbb{R}$$ 
-$$ \psi \mapsto \sqrt{\langle \psi\vert\psi \rangle} $$
+$$\vert  \cdot\vert  : \mathbb{H} \longrightarrow \mathbb{R}$$ 
+$$ \psi \mapsto \sqrt{\langle \psi\vert \psi \rangle} $$
 
 in which $\mathbb{H}$ is complete. If the metric defined by the norm is not complete, then $\mathbb{H}$ is instead known as inner product space.  
 
@@ -87,9 +87,9 @@ $$\langle f,g \rangle = E[f,g] = \intop{f(t)g(t)p(t)dt}$$
 where 
 $p(t)$ is probability density function 
 
-The length of a vector define as $\Vert f\Vert$
+The length of a vector define as $\vert  f\vert $
 
-$$\Vert f \Vert  = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
+$$\vert  f \vert   = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
 ## Reconstructing Correlation in $L^2$ 
 
 Using the $L^2$ space, we can translate statistical concepts into functional analysis. Let $X$ and $Y$ be two random variables in $L^2$ 
@@ -117,10 +117,10 @@ $$\sigma^2_X = \langle X', X' \rangle$$
 
 This can reveal that teh variance is the squared norm of the centered random variable
 
-$$\sigma^2_X = \Vert X'\Vert ^2$$
+$$\sigma^2_X = \vert  X'\vert  ^2$$
 So at the end of the day, the standard deviation is the norm of the centered variable 
 
-$$\sigma_X = \Vert X'\Vert  \quad \text{and} \quad \sigma_Y = \Vert Y'\Vert $$
+$$\sigma_X = \vert  X'\vert   \quad \text{and} \quad \sigma_Y = \vert  Y'\vert  $$
 ## Pearson Correlation as the Cosine in $L^2$ 
 
 We can now use these knowledge and glue it together. The Pearson Correlation Coefficient is the ratio of the covariance to the product of the standard deviations: 
@@ -129,7 +129,7 @@ $$\rho X,Y = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
 
 By substituting our Hilbert space representation for each term, we can get this elegant formulation
 
-$$\rho X,Y = \frac{\langle X', Y' \rangle}{\Vert X'\Vert  \cdot \Vert Y'\Vert }$$
+$$\rho X,Y = \frac{\langle X', Y' \rangle}{\vert  X'\vert   \cdot \vert  Y'\vert  }$$
 This is the answer to the initial question. The Pearson Correlation Coefficient is defined in the Hilbert space $L^2$ as the cosine of the angle between the centered random variables $X'$ and $Y'$. 
 
 
@@ -141,32 +141,32 @@ Huh????? What is this buckeroo Cauchy-Schwarz inequality? and why is this inequa
 
 The Cauchy-Schwarz inequality states that for any two vectors $u$ and $v$ in an inner product space: 
 
- $$ \vert \langle u , v \rangle \vert \le \Vert u\Vert  \Vert v\Vert $$
+ $$ \vert  \langle u , v \rangle \vert  \le \vert  u\vert   \vert  v\vert  $$
  
 This isn't an arbitrary rule where it arises directory axioms of the inner product itself, particularly the property of positive-definiteness, which states that the inner product of any vector with itself is non-negative $\langle w,w \rangle \ge 0$. 
 
 For example, consider any two vectors $u, v$ and a real scalar $t$. Now form a new vector $w = u - tv$. Because of the axioms, we known its squared norm must be non-negative 
 
-$$\Vert u - tv\Vert ^2 = \langle u - tv, u - tv \rangle \ge 0$$ 
+$$\vert  u - tv\vert  ^2 = \langle u - tv, u - tv \rangle \ge 0$$ 
 Expanding this using the properties of the inner product before we can get
 
 $$ \langle u,u \rangle- 2t \langle u,v \rangle + t^2 \langle v,v \rangle \ge 0$$ We can rewrite this with the norm notation 
 
-$$\Vert v\Vert ^2t^2 - 2 \langle u,v \rangle t + \Vert u\Vert ^2 \ge 0 $$ 
+$$\vert  v\vert  ^2t^2 - 2 \langle u,v \rangle t + \vert  u\vert  ^2 \ge 0 $$ 
 This is a quadratic polynomial in the variable $t$. For this quadratic to always be non-negative, it can have at most one real root. This means discriminant must be less than or equal to zero
 
-$$ (-2 \langle u,v \rangle)^2 - 4(\Vert v\Vert ^2) \ (\Vert u\Vert ^2) \le 0$$
+$$ (-2 \langle u,v \rangle)^2 - 4(\vert  v\vert  ^2) \ (\vert  u\vert  ^2) \le 0$$
 
-$$ 4(\langle u,v \rangle)^2 \le 4\Vert u\Vert ^2 \ \Vert v\Vert ^2 $$
+$$ 4(\langle u,v \rangle)^2 \le 4\vert  u\vert  ^2 \ \vert  v\vert  ^2 $$
 
-  $$(\langle u,v \rangle)^2 \le \Vert u\Vert ^2 \ \Vert v\Vert ^2$$ 
+  $$(\langle u,v \rangle)^2 \le \vert  u\vert  ^2 \ \vert  v\vert  ^2$$ 
 We can take the square root of both sides which gives us the Cauchy-Schwarz ineqaulity
 
-$$ \vert \langle u,v \rangle \vert \le \Vert u\Vert  \ \Vert v\Vert $$
+$$ \vert  \langle u,v \rangle \vert  \le \vert  u\vert   \ \vert  v\vert  $$
  
   This shows us that the inequality is not an external fact but a direct logic which is the consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$ this guarantees 
 
-$$ \vert\text{Cov}(X,Y)\vert = \vert\langle X', Y' \rangle\vert \le \\vertX'\\vert \\vertY'\\vert = \sigma_X \sigma_Y $$
+$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle\vert  \le \\vert X'\\vert  \\vert Y'\\vert  = \sigma_X \sigma_Y $$
 
 The initial question posed by my friend was spot on. When we define the Pearson Correlation Coefficient on $L^2$ space, we can reveal its fundamental nature as a measure of alignment in a vector space of random variables, rigorously bounded by the inherent geometry of that space.
 
