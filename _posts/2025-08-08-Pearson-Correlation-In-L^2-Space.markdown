@@ -81,8 +81,9 @@ $$\langle f,g \rangle = E[f,g] = \intop{f(t)g(t)p(t)dt}$$
 where 
 $p(t)$ is probability density function 
 
-The length of a vector define as $\Vert f\Vert $
-$$\Vert f\Vert  = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
+The length of a vector define as $\Vert f\Vert$
+
+$$\Vert f \Vert  = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
 ## Reconstructing Correlation in $L^2$ 
 
 Using the $L^2$ space, we can translate statistical concepts into functional analysis. Let $X$ and $Y$ be two random variables in $L^2$ 
