@@ -27,7 +27,7 @@ $$Y' = Y- \bar{Y}$$
 
 Here, $X$ and $Y$ are treated as vectors in $\mathbb{R}^n$, and $\bar{X}$ and $\bar{Y}$ are scalar multiples of the vector of ones. With the standard Euclidean inner product $\langle A, B \rangle = \sum{A_i B_i}$ the PCC formula can be transformed into the cosine of the angle $\theta$ between these centered vectors 
 
-$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{||X'|| \cdot ||Y'||} = \cos (\theta)$$
+$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{\VertX'\Vert \cdot \VertY'\Vert} = \cos (\theta)$$
 
 This gives us some clear understanding using geometric foundation. But to generalize this concept from finite data points to continuous random variables, we have to change our perspective form finite-dimensional Euclidean space to an infinite-dimensional function space, which brings us to the Hilbert's space. 
 # Introduction to Hilbert's space 
@@ -57,7 +57,7 @@ $$ \langle \psi|a\varphi_1 + b\varphi_2 \rangle = a\langle \psi|\varphi_1 \rangl
 
 and this scalar product induces a norm 
 
-$$||\cdot||: \mathbb{H} \longrightarrow \mathbb{R}$$ 
+$$\Vert\cdot\Vert: \mathbb{H} \longrightarrow \mathbb{R}$$ 
 $$ \psi \mapsto \sqrt{\langle \psi|\psi \rangle} $$
 
 in which $\mathbb{H}$ is complete. If the metric defined by the norm is not complete, then $\mathbb{H}$ is instead known as inner product space.  
@@ -81,8 +81,8 @@ $$\langle f,g \rangle = E[f,g] = \intop{f(t)g(t)p(t)dt}$$
 where 
 $p(t)$ is probability density function 
 
-The length of a vector define as $||f||$
-$$||f|| = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
+The length of a vector define as $\Vertf\Vert$
+$$\Vertf\Vert = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
 ## Reconstructing Correlation in $L^2$ 
 
 Using the $L^2$ space, we can translate statistical concepts into functional analysis. Let $X$ and $Y$ be two random variables in $L^2$ 
@@ -110,10 +110,10 @@ $$\sigma^2_X = \langle X', X' \rangle$$
 
 This can reveal that teh variance is the squared norm of the centered random variable
 
-$$\sigma^2_X = ||X'||^2$$
+$$\sigma^2_X = \VertX'\Vert^2$$
 So at the end of the day, the standard deviation is the norm of the centered variable 
 
-$$\sigma_X = ||X'|| \quad \text{and} \quad \sigma_Y = ||Y'||$$
+$$\sigma_X = \VertX'\Vert \quad \text{and} \quad \sigma_Y = \VertY'\Vert$$
 ## Pearson Correlation as the Cosine in $L^2$ 
 
 We can now use these knowledge and glue it together. The Pearson Correlation Coefficient is the ratio of the covariance to the product of the standard deviations: 
@@ -122,7 +122,7 @@ $$\rho X,Y = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
 
 By substituting our Hilbert space representation for each term, we can get this elegant formulation
 
-$$\rho X,Y = \frac{\langle X', Y' \rangle}{||X'|| \cdot ||Y'||}$$
+$$\rho X,Y = \frac{\langle X', Y' \rangle}{\VertX'\Vert \cdot \VertY'\Vert}$$
 This is the answer to the initial question. The Pearson Correlation Coefficient is defined in the Hilbert space $L^2$ as the cosine of the angle between the centered random variables $X'$ and $Y'$. 
 
 
@@ -134,28 +134,28 @@ Huh????? What is this buckeroo Cauchy-Schwarz inequality? and why is this inequa
 
 The Cauchy-Schwarz inequality states that for any two vectors $u$ and $v$ in an inner product space: 
 
- $$ | \langle u , v \rangle | \le ||u|| ||v||$$
+ $$ | \langle u , v \rangle | \le \Vertu\Vert \Vertv\Vert$$
  
 This isn't an arbitrary rule where it arises directory axioms of the inner product itself, particularly the property of positive-definiteness, which states that the inner product of any vector with itself is non-negative $\langle w,w \rangle \ge 0$. 
 
 For example, consider any two vectors $u, v$ and a real scalar $t$. Now form a new vector $w = u - tv$. Because of the axioms, we known its squared norm must be non-negative 
 
-$$||u - tv||^2 = \langle u - tv, u - tv \rangle \ge 0$$ 
+$$\Vertu - tv\Vert^2 = \langle u - tv, u - tv \rangle \ge 0$$ 
 Expanding this using the properties of the inner product before we can get
 
 $$ \langle u,u \rangle- 2t \langle u,v \rangle + t^2 \langle v,v \rangle \ge 0$$ We can rewrite this with the norm notation 
 
-$$||v||^2t^2 - 2 \langle u,v \rangle t + ||u||^2 \ge 0 $$ 
+$$\Vertv\Vert^2t^2 - 2 \langle u,v \rangle t + \Vertu\Vert^2 \ge 0 $$ 
 This is a quadratic polynomial in the variable $t$. For this quadratic to always be non-negative, it can have at most one real root. This means discriminant must be less than or equal to zero
 
-$$ (-2 \langle u,v \rangle)^2 - 4(||v||^2) \ (||u||^2) \le 0$$
+$$ (-2 \langle u,v \rangle)^2 - 4(\Vertv\Vert^2) \ (\Vertu\Vert^2) \le 0$$
 
-$$ 4(\langle u,v \rangle)^2 \le 4||u||^2 \ ||v||^2 $$
+$$ 4(\langle u,v \rangle)^2 \le 4\Vertu\Vert^2 \ \Vertv\Vert^2 $$
 
-  $$(\langle u,v \rangle)^2 \le ||u||^2 \ ||v||^2$$ 
+  $$(\langle u,v \rangle)^2 \le \Vertu\Vert^2 \ \Vertv\Vert^2$$ 
 We can take the square root of both sides which gives us the Cauchy-Schwarz ineqaulity
 
-$$ | \langle u,v \rangle | \le ||u|| \ ||v||$$
+$$ | \langle u,v \rangle | \le \Vertu\Vert \ \Vertv\Vert$$
  
   This shows us that the inequality is not an external fact but a direct logic which is the consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$ this guarantees 
 
