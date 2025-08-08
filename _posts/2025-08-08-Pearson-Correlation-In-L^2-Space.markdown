@@ -6,8 +6,9 @@ categories: Math, Side-channel
 usemathjax: true
 ---
 
-## Motivation 
+# Defining Pearson Correlation Coefficient on $L^2$ space
 
+## Motivation
 
 ![[Pasted image 20250730115519.png]]
 (From my presentation, "Introduction to Laser Fault Injection." The slide reads: "I was going to talk about Elliptic Curves, but if you don't have a mathematical background, it will be very boring, and you will end up in Graduate school majoring in mathematics, lol")
@@ -18,155 +19,119 @@ This gave me some spark and challenge to work on during my free time, which I en
 
 ## Introduction to Pearson Correlation in Euclidean Space
 
-In statistics, the Pearson Correlation Coefficient (PCC) is a correlation coefficient that measures linear correlation between two sets of data. 
+In statistics, the Pearson Correlation Coefficient (PCC) is a correlation coefficient that measures linear correlation between two sets of data.
 
-It is the ratio between the covariance of two variables and the product of their standard deviations. It is essentially a normalized measurement of the covariance, such that the result always has a value between $-1$ and $1$. 
+It is the ratio between the covariance of two variables and the product of their standard deviations. It is essentially a normalized measurement of the covariance, such that the result always has a value between $-1$ and $1$.
 
-For example if we have two discrete datasets $X = \{ x_1, \dots, x_n \}$ and $Y = \{ y_1 , \dots, y_n \}$, the sample Pearson Correlation Coefficient (PCC) is given by: 
-
+For example if we have two discrete datasets $X = \{ x_1, \dots, x_n \}$ and $Y = \{ y_1 , \dots, y_n \}$, the sample Pearson Correlation Coefficient (PCC) is given by:
 $$\rho_{X,Y} = \frac{\sum(X-\bar{X})(Y-\bar{Y})}{\sqrt{\sum(X-\bar{X})^2 \sum(Y-\bar{Y})^2}}$$
 
-The formula suggests geometric interpretation. We can define centered vectors in $\mathbb{R}^n$: 
-
+The formula suggests geometric interpretation. We can define centered vectors in $\mathbb{R}^n$:
 $$X' = X- \bar{X}$$
 $$Y' = Y- \bar{Y}$$
 
-Here, $X$ and $Y$ are treated as vectors in $\mathbb{R}^n$, and $\bar{X}$ and $\bar{Y}$ are scalar multiples of the vector of ones. With the standard Euclidean inner product $\langle A, B \rangle = \sum{A_i B_i}$ the PCC formula can be transformed into the cosine of the angle $\theta$ between these centered vectors 
+Here, $X$ and $Y$ are treated as vectors in $\mathbb{R}^n$, and $\bar{X}$ and $\bar{Y}$ are scalar multiples of the vector of ones. With the standard Euclidean inner product $\langle A, B \rangle = \sum{A_i B_i}$ the PCC formula can be transformed into the cosine of the angle $\theta$ between these centered vectors:
+$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{\Vert X' \Vert \cdot \Vert Y' \Vert} = \cos (\theta)$$
 
-$$\rho_{X,Y} = \frac{\langle X',Y'\rangle}{\vert  X'\vert   \cdot \vert  Y'\vert  } = \cos (\theta)$$
+This gives us some clear understanding using geometric foundation. But to generalize this concept from finite data points to continuous random variables, we have to change our perspective from finite-dimensional Euclidean space to an infinite-dimensional function space, which brings us to the Hilbert's space.
 
-This gives us some clear understanding using geometric foundation. But to generalize this concept from finite data points to continuous random variables, we have to change our perspective form finite-dimensional Euclidean space to an infinite-dimensional function space, which brings us to the Hilbert's space. 
-# Introduction to Hilbert's space 
+# Introduction to Hilbert's space
 
-A Hilbert space is a mathematical concept that generalizes the familiar notion of Euclidean space. It's an inner product product space meaning that it's a vector space where you can measure lengths and angles, and it's also complete which means all of its limit points. This makes us able to bring topics such as geometric concepts. If we say in one paragraph, we can say that "Hilbert space is a complete complex vector space that has a scalar product".
+A Hilbert space is a mathematical concept that generalizes the familiar notion of Euclidean space. It's an inner product space, meaning that it's a vector space where you can measure lengths and angles, and it's also complete, which means all of its limit points exist within the space. This makes us able to bring topics such as geometric concepts. If we say in one paragraph, we can say that "Hilbert space is a complete complex vector space that has a scalar product".
 
-A Hilbert space is denoted as $\mathbb{H}$ is defined by two characteristics which is vector space with an inner product, and completeness. 
+A Hilbert space, denoted as $\mathbb{H}$, is defined by two characteristics: being a vector space with an inner product, and completeness.
 
-To explain this smoothly, i will bring some definitions from the book "Mathematics of Quantum Computing"
+To explain this smoothly, I will bring some definitions from the book "Mathematics of Quantum Computing."
 
-**Definition**: A Hilbert Space $\mathbb{H}$ is a 
+**Definition**: A Hilbert Space $\mathbb{H}$ is a
 
-(i) complete complex vector space, that is, 
-
+(i) complete complex vector space, that is,
 $$ \psi, \varphi \in \mathbb{H} \space \text{and} \space a,b \in \mathbb{C} \Rightarrow a\psi + b\varphi \in \mathbb{H}$$
 
-(ii) with a (positive-definite) scalar product 
-
-$$ \langle \cdot\vert \cdot \rangle : \mathbb{H} \times \mathbb{H} \longrightarrow \mathbb{C} $$
-$$ (\psi, \varphi) \longmapsto \langle \psi\vert \varphi \rangle $$
+(ii) with a (positive-definite) scalar product
+$$ \langle \cdot\vert\cdot \rangle : \mathbb{H} \times \mathbb{H} \longrightarrow \mathbb{C} $$
+$$ (\psi, \varphi) \longmapsto \langle \psi \vert\varphi \rangle $$
 such that for all $\varphi, \psi, \varphi_{1}, \varphi_{2}$
+$$\langle\psi \vert\varphi\rangle = \overline{\langle\varphi\vert\psi\rangle}$$
+$$ \langle \psi\vert\psi \rangle \ge 0 $$
+$$ \langle \psi\vert\psi \rangle = 0 \iff \psi = 0 $$
+$$ \langle \psi\vert a\varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert\varphi_1 \rangle + b\langle \psi\vert\varphi_2 \rangle $$
 
-$$\langle\psi\vert \varphi\rangle = \overline{\langle\varphi\vert \psi\rangle}$$
-$$ \langle \psi\vert \psi \rangle \ge 0 $$ 
-$$ \langle \psi\vert \psi \rangle = 0 \iff \psi = 0 $$ 
-$$ \langle \psi \vert a \varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert \varphi_1 \rangle + b \langle \psi \varphi_2 \rangle $$ 
+and this scalar product induces a norm
+$$\Vert \cdot \Vert : \mathbb{H} \longrightarrow \mathbb{R}$$
+$$ \psi \mapsto \sqrt{\langle \psi\vert\psi \rangle} $$
+in which $\mathbb{H}$ is complete. If the metric defined by the norm is not complete, then $\mathbb{H}$ is instead known as an inner product space.
 
-and this scalar product induces a norm 
+A subset $\mathbb{H}_{sub} \subset \mathbb{H}$ which is a vector space and inherits the scalar product and the norm from $\mathbb{H}$ is called a sub-Hilbert space or simply a subspace of $\mathbb{H}$.
 
-$$\vert  \cdot\vert  : \mathbb{H} \longrightarrow \mathbb{R}$$ 
-$$ \psi \mapsto \sqrt{\langle \psi\vert \psi \rangle} $$
+# $L^2$ space
 
-in which $\mathbb{H}$ is complete. If the metric defined by the norm is not complete, then $\mathbb{H}$ is instead known as inner product space.  
+**IMPORTANT:** To ease reading the formula we will substitute $\psi$ to $f$, $\varphi$ to $g$.
 
-A subset $\mathbb{H}_{sub} \subset \mathbb{H}$ which is a vector space and inherits the scalar product and the norm from $\mathbb{H}$ is called a sub Hilbert space or simply a subspace of $\mathbb{H}$. 
+$L^2$ is a great example of an infinite-dimensional Hilbert space. For our purposes, we consider the space of random variables $f$ with finite second moments ($E[f^2] < \infty$). For random variables defined over a continuous domain, the inner product is:
+$$ \langle f, g \rangle = E[fg] = \int_{-\infty}^{\infty}f(t)g(t)p(t)dt$$
+where $p(t)$ is the probability density function.
 
-#  $L^2$ space
+The length of a vector is defined as $\Vert f \Vert$:
+$$\Vert f \Vert = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
 
-IMPORTANT: To ease reading the formula we will substitute $\psi$ to $f$, $\varphi$ to $g$
+## Reconstructing Correlation in $L^2$
 
-$L^2$ is a great example of infinite-dimensional Hilbert space, where the set of all functions $f : \mathbb{R} \rightarrow \mathbb{R}$ such that the integral of $f^2$ over the whole real line is finite, In this case, the inner product is 
+Using the $L^2$ space, we can translate statistical concepts into functional analysis. Let $X$ and $Y$ be two random variables in $L^2$.
 
-$$ \langle f, g \rangle = \intop^{\infty}_{-\infty} f(x)g(x)dx$$
-
- So using all these information, we can now try to apply it with our example of Pearson Correlation to Hilbert's space $\mathbb{L}^2$ $(E[f^2] \lt \infty)$  
-
-Inner product example 
-
-$$\langle f,g \rangle = E[f,g] = \intop{f(t)g(t)p(t)dt}$$
-
-where 
-$p(t)$ is probability density function 
-
-The length of a vector define as $\vert  f\vert $
-
-$$\vert  f \vert   = \sqrt{ \langle f,f \rangle} = \sqrt{E[f^2]}$$
-## Reconstructing Correlation in $L^2$ 
-
-Using the $L^2$ space, we can translate statistical concepts into functional analysis. Let $X$ and $Y$ be two random variables in $L^2$ 
-
-The covariance of $X$ and $Y$ can be defined as: 
-
+The covariance of $X$ and $Y$ can be defined as:
 $$Cov(X,Y) = E[(X-E[X])(Y-E[Y])]$$
 
-Define the centered random variables, which are also elements of $L^2$: 
-$X' = X - E[X]$
-$Y' = Y - E[Y]$
+Define the centered random variables, which are also elements of $L^2$:
+$$X' = X - E[X]$$
+$$Y' = Y - E[Y]$$
+Note that $E[X'] = 0$ and $E[Y'] = 0$.
 
-Note that $E[X'] = 0$ and $E[Y'] = 0$ 
-
-The covariance can now be expressed as an inner product of these centered variables: 
+The covariance can now be expressed as an inner product of these centered variables:
 $$Cov(X,Y) = E[X'Y'] = \langle X',Y'\rangle$$
 
-For the variance, 
-
+For the variance,
 $$\sigma^2_X = E[(X-E[X])^2] = E[(X')^2]$$
-
-So we will be able to get 
-
+So we will be able to get:
 $$\sigma^2_X = \langle X', X' \rangle$$
+This reveals that the variance is the squared norm of the centered random variable:
+$$\sigma^2_X = \Vert X' \Vert^2$$
+So at the end of the day, the standard deviation is the norm of the centered variable:
+$$\sigma_X = \Vert X' \Vert \quad \text{and} \quad \sigma_Y = \Vert Y' \Vert$$
 
-This can reveal that teh variance is the squared norm of the centered random variable
+## Pearson Correlation as the Cosine in $L^2$
 
-$$\sigma^2_X = \vert  X'\vert  ^2$$
-So at the end of the day, the standard deviation is the norm of the centered variable 
+We can now use this knowledge and glue it together. The Pearson Correlation Coefficient is the ratio of the covariance to the product of the standard deviations:
+$$\rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+By substituting our Hilbert space representation for each term, we can get this elegant formulation:
+$$\rho_{X,Y} = \frac{\langle X', Y' \rangle}{\Vert X' \Vert \cdot \Vert Y' \Vert}$$
+This is the answer to the initial question. The Pearson Correlation Coefficient is defined in the Hilbert space $L^2$ as the cosine of the angle between the centered random variables $X'$ and $Y'$.
 
-$$\sigma_X = \vert  X'\vert   \quad \text{and} \quad \sigma_Y = \vert  Y'\vert  $$
-## Pearson Correlation as the Cosine in $L^2$ 
+This is a well-known property that $-1 \le \rho_{X,Y} \le 1$ is an immediate and direct consequence of the Cauchy-Schwarz Inequality.
 
-We can now use these knowledge and glue it together. The Pearson Correlation Coefficient is the ratio of the covariance to the product of the standard deviations: 
+Huh????? What is this buckeroo Cauchy-Schwarz inequality? And why is this inequality an inherent property of all inner product spaces? Well, let's get into it!
 
-$$\rho X,Y = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+## Intro to Cauchy-Schwarz Inequality
 
-By substituting our Hilbert space representation for each term, we can get this elegant formulation
+The Cauchy-Schwarz inequality states that for any two vectors $u$ and $v$ in an inner product space:
+$$ \vert \langle u , v \rangle \vert \le \Vert u \Vert \Vert v \Vert$$
 
-$$\rho X,Y = \frac{\langle X', Y' \rangle}{\vert  X'\vert   \cdot \vert  Y'\vert  }$$
-This is the answer to the initial question. The Pearson Correlation Coefficient is defined in the Hilbert space $L^2$ as the cosine of the angle between the centered random variables $X'$ and $Y'$. 
+This isn't an arbitrary rule; it arises directly from the axioms of the inner product itself, particularly the property of positive-definiteness, which states that the inner product of any vector with itself is non-negative ($\langle w,w \rangle \ge 0$).
 
+For example, consider any two vectors $u, v$ and a real scalar $t$. Now form a new vector $w = u - tv$. Because of the axioms, we know its squared norm must be non-negative:
+$$\Vert u - tv \Vert^2 = \langle u - tv, u - tv \rangle \ge 0$$
+Expanding this using the properties of the inner product we saw before, we get:
+$$ \langle u,u \rangle- 2t \langle u,v \rangle + t^2 \langle v,v \rangle \ge 0$$
+We can rewrite this with the norm notation:
+$$\Vert v \Vert^2t^2 - 2 \langle u,v \rangle t + \Vert u \Vert^2 \ge 0 $$
+This is a quadratic polynomial in the variable $t$. For this quadratic to always be non-negative, it can have at most one real root. This means its discriminant must be less than or equal to zero:
+$$ (-2 \langle u,v \rangle)^2 - 4(\Vert v \Vert^2)(\Vert u \Vert^2) \le 0$$
+$$ 4(\langle u,v \rangle)^2 \le 4\Vert u \Vert^2 \Vert v \Vert^2 $$
+$$(\langle u,v \rangle)^2 \le \Vert u \Vert^2 \Vert v \Vert^2$$
+We can take the square root of both sides which gives us the Cauchy-Schwarz inequality:
+$$ \vert \langle u,v \rangle \vert \le \Vert u \Vert \Vert v \Vert$$
 
-This is well-known property that $-1 \le \rho X,Y \le 1$ is an immediate and direct consequence of the Cauchy-Schwarz Inequality. 
+This shows us that the inequality is not an external fact but a direct logical consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$, this guarantees:
+$$ \vert\text{Cov}(X,Y)\vert = \vert\langle X', Y' \rangle\vert \le \Vert X' \Vert \Vert Y' \Vert = \sigma_X \sigma_Y $$
 
-Huh????? What is this buckeroo Cauchy-Schwarz inequality? and why is this inequality an inherent property of all inner product spaces? Well let's get into it! 
-
-## Intro to Cauchy-Schwarz Inequality 
-
-The Cauchy-Schwarz inequality states that for any two vectors $u$ and $v$ in an inner product space: 
-
- $$\vert  \langle u , v \rangle \vert  \le \vert  u\vert   \vert  v\vert$$
- 
-This isn't an arbitrary rule where it arises directory axioms of the inner product itself, particularly the property of positive-definiteness, which states that the inner product of any vector with itself is non-negative $\langle w,w \rangle \ge 0$. 
-
-For example, consider any two vectors $u, v$ and a real scalar $t$. Now form a new vector $w = u - tv$. Because of the axioms, we known its squared norm must be non-negative 
-
-$$\vert  u - tv\vert  ^2 = \langle u - tv, u - tv \rangle \ge 0$$ 
-Expanding this using the properties of the inner product before we can get
-
-$$ \langle u,u \rangle- 2t \langle u,v \rangle + t^2 \langle v,v \rangle \ge 0$$ We can rewrite this with the norm notation 
-
-$$\vert  v\vert  ^2t^2 - 2 \langle u,v \rangle t + \vert  u\vert  ^2 \ge 0 $$ 
-This is a quadratic polynomial in the variable $t$. For this quadratic to always be non-negative, it can have at most one real root. This means discriminant must be less than or equal to zero
-
-$$ (-2 \langle u,v \rangle)^2 - 4(\vert  v\vert  ^2) \ (\vert  u\vert  ^2) \le 0$$
-
-$$ 4(\langle u,v \rangle)^2 \le 4\vert  u\vert  ^2 \ \vert  v\vert  ^2 $$
-
-  $$(\langle u,v \rangle)^2 \le \vert  u\vert  ^2 \ \vert  v\vert  ^2$$ 
-We can take the square root of both sides which gives us the Cauchy-Schwarz ineqaulity
-
-$$ \vert  \langle u,v \rangle \vert  \le \vert  u\vert   \ \vert  v\vert  $$
- 
-  This shows us that the inequality is not an external fact but a direct logic which is the consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$ this guarantees 
-
-$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle \vert  \le \\vert X'\vert  \\vert Y'\vert  = \sigma_X \sigma_Y $$
-
-The initial question posed by my friend was spot on. When we define the Pearson Correlation Coefficient on $L^2$ space, we can reveal its fundamental nature as a measure of alignment in a vector space of random variables, rigorously bounded by the inherent geometry of that space.
-
+The initial question posed by my friend was spot on. When we define the Pearson Correlation Coefficient on $L^2$ space, we can reveal its fundamental nature as a measure of alignment in a vector space of random variables, rigorously bounded by the inherent geometry of that space.
