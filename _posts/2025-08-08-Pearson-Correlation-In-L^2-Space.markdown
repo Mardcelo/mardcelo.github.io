@@ -141,7 +141,7 @@ Huh????? What is this buckeroo Cauchy-Schwarz inequality? and why is this inequa
 
 The Cauchy-Schwarz inequality states that for any two vectors $u$ and $v$ in an inner product space: 
 
- $$ \vert  \langle u , v \rangle \vert  \le \vert  u\vert   \vert  v\vert  $$
+ $$\vert  \langle u , v \rangle \vert  \le \vert  u\vert   \vert  v\vert$$
  
 This isn't an arbitrary rule where it arises directory axioms of the inner product itself, particularly the property of positive-definiteness, which states that the inner product of any vector with itself is non-negative $\langle w,w \rangle \ge 0$. 
 
@@ -166,7 +166,7 @@ $$ \vert  \langle u,v \rangle \vert  \le \vert  u\vert   \ \vert  v\vert  $$
  
   This shows us that the inequality is not an external fact but a direct logic which is the consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$ this guarantees 
 
-$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle \vert  \le \\vert X'\ \vert  \\vert Y'\ \vert  = \sigma_X \sigma_Y $$
+$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle \vert  \le \\vert X'\vert  \\vert Y'\vert  = \sigma_X \sigma_Y $$
 
 The initial question posed by my friend was spot on. When we define the Pearson Correlation Coefficient on $L^2$ space, we can reveal its fundamental nature as a measure of alignment in a vector space of random variables, rigorously bounded by the inherent geometry of that space.
 
