@@ -59,7 +59,7 @@ such that for all $\varphi, \psi, \varphi_{1}, \varphi_{2}$
 $$\langle\psi\vert \varphi\rangle = \overline{\langle\varphi\vert \psi\rangle}$$
 $$ \langle \psi\vert \psi \rangle \ge 0 $$ 
 $$ \langle \psi\vert \psi \rangle = 0 \iff \psi = 0 $$ 
-$$ \langle \psi\vert a\varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert \varphi_1 \rangle + b \langle \psi \varphi_2 \rangle $$ 
+$$ \langle \psi \vert a \varphi_1 + b\varphi_2 \rangle = a\langle \psi\vert \varphi_1 \rangle + b \langle \psi \varphi_2 \rangle $$ 
 
 and this scalar product induces a norm 
 
@@ -166,7 +166,7 @@ $$ \vert  \langle u,v \rangle \vert  \le \vert  u\vert   \ \vert  v\vert  $$
  
   This shows us that the inequality is not an external fact but a direct logic which is the consequence of the geometric structure we imposed on the vector space. If we apply this to our centered random variables $X'$ and $Y'$ this guarantees 
 
-$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle\vert  \le \\vert X'\\vert  \\vert Y'\\vert  = \sigma_X \sigma_Y $$
+$$ \vert \text{Cov}(X,Y)\vert  = \vert \langle X', Y' \rangle \vert  \le \\vert X'\ \vert  \\vert Y'\ \vert  = \sigma_X \sigma_Y $$
 
 The initial question posed by my friend was spot on. When we define the Pearson Correlation Coefficient on $L^2$ space, we can reveal its fundamental nature as a measure of alignment in a vector space of random variables, rigorously bounded by the inherent geometry of that space.
 
