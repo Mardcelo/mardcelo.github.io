@@ -92,11 +92,17 @@ $$Cov(X,Y) = E[X'Y'] = \langle X',Y'\rangle$$
 
 For the variance,
 $$\sigma^2_X = E[(X-E[X])^2] = E[(X')^2]$$
+
 So we will be able to get:
+
 $$\sigma^2_X = \langle X', X' \rangle$$
+
 This reveals that the variance is the squared norm of the centered random variable:
+
 $$\sigma^2_X = \Vert X' \Vert^2$$
+
 So at the end of the day, the standard deviation is the norm of the centered variable:
+
 $$\sigma_X = \Vert X' \Vert \quad \text{and} \quad \sigma_Y = \Vert Y' \Vert$$
 
 ## Pearson Correlation as the Cosine in $L^2$
