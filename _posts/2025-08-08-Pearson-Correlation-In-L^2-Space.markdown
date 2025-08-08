@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Defining Pearson Correlation Coefficient on $L^2$ space"
+title:  "Defining Pearson Correlation on $L^2$"
 date:   2025-08-08 02:10:10 +0100
 categories: Math, Side-channel 
 usemathjax: true
 ---
 
-# Defining Pearson Correlation Coefficient on $L^2$ space
+# Defining Pearson Correlation on $L^2$
 
 ## Motivation
 
