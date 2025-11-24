@@ -59,7 +59,7 @@ So, how does this script work?
 
 Great question, since people are lazy, I did some analysis of it
 
-## Technical Overview of Dex Explorer: Peeking Under the Hood <a name="Dex"></a>
+## Technical Overview of Dex Explorer <a name="Dex"></a>
 
 Dex Explorer’s loader starts by setting up its internal variables and default configuration, hooking into core Roblox services and identifying the local player so it can understand the client-side environment it is running inside. It then defines helper functions, initializes its central controller object, and prepares a simple module system so that different parts of the explorer (such as the tree view, property panel, and script viewer) can stay organized and reusable. The loader pulls in additional modules and data from its repository, including a dataset based on Roblox’s Reflection Metadata, which describes classes, properties, methods, and events. With that information ready, it builds the on-screen interface using normal Roblox UI objects like `ScreenGui`, `Frame`, `TextLabel`, `TextBox`, and `ScrollingFrame`, wires up input handling, initializes the explorer and property viewer with live data from the game, and then starts its main loop.
 
